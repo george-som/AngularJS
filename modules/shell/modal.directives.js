@@ -11,6 +11,7 @@
                     show: '='
                 },
                 transclude: true,
+                replace: true,
                 link: function($scope, element, attrs) {
                     $scope.dialogStyle = {};
                     if (attrs.width)

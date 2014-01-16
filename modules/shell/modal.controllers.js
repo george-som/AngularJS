@@ -5,7 +5,7 @@
         .controller("mi.repair.web.ModalCtrl", ['$scope', function($scope) {
             var viewModel = {
                 modalShown: false,
-                templateUrl: undefined
+                //templateUrl: undefined
             };
 
             $scope.$on("show-modal", function(event, args) {
@@ -19,7 +19,7 @@
                console.log("hide-modal event");
 
                 viewModel.modalShown = false;
-                viewModel.templateUrl = undefined;
+                //viewModel.templateUrl = undefined;
             });
 
             $scope.modalViewModel = viewModel;

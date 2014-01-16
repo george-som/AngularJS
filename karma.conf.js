@@ -4,8 +4,11 @@
 module.exports = function(config) {
   config.set({
 
+    preprocessors: {
+      '**/*.html': ['html2js']
+    },
     // base path, that will be used to resolve files and exclude
-    basePath: '',
+    basePath: './',
 
 
     // frameworks to use
@@ -28,7 +31,8 @@ module.exports = function(config) {
     exclude: [
       'libs/angularjs/1.2.8/angular-loader.js',
       'libs/angularjs/1.2.8/*.min.js',
-      'libs/angularjs/1.2.8/angular-scenario.js'
+      'libs/angularjs/1.2.8/angular-scenario.js',
+      'libs/app/app.js'
     ],
 
 
