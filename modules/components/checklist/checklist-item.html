@@ -1,0 +1,23 @@
+<div class="panel panel-primary">
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                Image
+            </div>
+            <div class="col-md-10">
+                <div>
+                    <div>{{checklistItemViewModel.currentState.heading}} </div>
+                    <div>{{checklistItemViewModel.currentState.subHeading}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+                <div ng-repeat="action in checklistItemViewModel.currentState.actions">
+                    <a href ng-click="action.action()">{{action.text}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿<div id="shell" class="container fill shell">
+    <div class="row">
+        <div class="col-md-6">
+            {{appViewModel.appConfig.appName}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div checklist cl-title="Plutonium Cupcake Instructions">
+                <div checklist-item ng-controller="mi.repair.web.EstimateChecklistItemConfigCtrl"></div>
+                <div checklist-item ng-controller="mi.repair.web.AttachmentChecklistItemCtrl"></div>
+                <div checklist-item ng-controller="RadioactivityChecklistItemConfigCtrl"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-controller="mi.repair.web.ModalCtrl">
+        <div modal  show='modalViewModel.modalShown' width='750px' height='60%'>
+            <div ng-include="modalViewModel.templateUrl"></div>
+        </div>
+    </div>
+</div>

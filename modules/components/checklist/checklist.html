@@ -1,0 +1,17 @@
+﻿<div class="panel panel-primary checklist">
+    <div class="panel-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="h4">{{checklistConfig.title}}</div>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn" ng-class="checklistViewModel.currentState.buttonClass">
+                        {{checklistViewModel.currentState.buttonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body" ng-transclude></div>
+</div>
