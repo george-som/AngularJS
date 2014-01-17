@@ -13,14 +13,22 @@
                             {
                                 text: "Add Attachments",
                                 action: function() {
-                                    var args = { templateurl: "app/job-overview/checklist/add-attachments-box.html" }
+                                    var args = { templateurl: "app/job-overview/checklist/attachments/add-attachments-box.html" }
                                     $rootScope.$broadcast("show-modal", args);
                                 }
                             }]
                     },
                     "completed" : {
-                        heading: "Radioactive Baker",
-                        subHeading: "All required ingredients are ready"
+                        heading: "Photos & Attachments",
+                        subHeading: "18 photos of the damage area attached but not yet submitted for review",
+                        actions: [
+                            {
+                                text: "Add Attachments",
+                                action: function() {
+                                    var args = { templateurl: "app/job-overview/checklist/attachments/add-attachments-box.html" }
+                                    $rootScope.$broadcast("show-modal", args);
+                                }
+                            }]
                     }
                 };
 
@@ -29,7 +37,7 @@
                     states: states
                 };
 
-                $scope.checklistItemViewModel.currentState = states["default"];
+                $scope.checklistItemViewModel.currentState = states["completed"];
             }]);
 
 }(angular))

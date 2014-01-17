@@ -6,16 +6,16 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <div checklist cl-title="Plutonium Cupcake Instructions">
-                <div checklist-item ng-controller="mi.repair.web.EstimateChecklistItemConfigCtrl"></div>
-                <div checklist-item ng-controller="mi.repair.web.AttachmentChecklistItemCtrl"></div>
-                <div checklist-item ng-controller="RadioactivityChecklistItemConfigCtrl"></div>
+            <div data-checklist data-cl-title="Assignment Checklist">
+                <div data-checklist-item data-ng-controller="mi.repair.web.EstimateChecklistItemConfigCtrl"></div>
+                <div data-checklist-item data-ng-controller="mi.repair.web.AttachmentChecklistItemCtrl"></div>
+                <div data-checklist-item data-ng-controller="mi.repair.web.ComplianceChecklistItemCtrl"></div>
             </div>
         </div>
     </div>
-    <div class="row" ng-controller="mi.repair.web.ModalCtrl">
-        <div modal  show='modalViewModel.modalShown' width='750px' height='60%'>
-            <div ng-include="modalViewModel.templateUrl"></div>
+    <div class="row" data-ng-controller="mi.repair.web.ModalCtrl">750px
+        <div data-modal  data-show='modalViewModel.modalShown' data-width='75%' data-height='60%'>
+            <div data-ng-include="modalViewModel.templateUrl"></div>
         </div>
     </div>
 </div>

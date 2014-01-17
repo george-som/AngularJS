@@ -14,8 +14,8 @@
         </div>
         <div class="row">
             <div class="col-md-10 col-md-offset-2">
-                <div ng-repeat="action in checklistItemViewModel.currentState.actions">
-                    <a href ng-click="action.action()">{{action.text}}</a>
+                <div data-ng-repeat="action in checklistItemViewModel.currentState.actions">
+                    <a href data-ng-click="action.action()">{{action.text}}</a>
                 </div>
             </div>
         </div>

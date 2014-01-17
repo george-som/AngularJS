@@ -23,7 +23,7 @@
             restrict: 'AE',
             templateUrl: "modules/components/checklist/checklist.html",
             transclude: true,
-            controller: "ChecklistCtrl",
+            controller: "mi.repair.web.ChecklistCtrl",
             compile: compile
         };
     });

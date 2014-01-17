@@ -7,7 +7,7 @@
         return {
             restrict: 'AE',
             templateUrl: "modules/shell/shell.html",
-            controller: "ShellCtrl"
+            controller: "mi.repair.web.ShellCtrl"
         };
     });
 }(angular))

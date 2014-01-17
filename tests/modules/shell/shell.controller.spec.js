@@ -9,7 +9,7 @@ describe("Modules Test Suite", function() {
 
         beforeEach(inject(function($rootScope, $controller) {
             _scope = $rootScope.$new();
-            _sut = $controller('ShellCtrl', { $scope: _scope });
+            _sut = $controller('mi.repair.web.ShellCtrl', { $scope: _scope });
         }));
 
         it("should be shown", function() {

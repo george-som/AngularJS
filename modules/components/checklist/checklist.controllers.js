@@ -2,7 +2,7 @@
     'use strict';
 
     ng.module("mi.repair.web")
-        .controller("ChecklistCtrl", ['$scope',
+        .controller("mi.repair.web.ChecklistCtrl", ['$scope',
         function ($scope) {
 
             var states = {

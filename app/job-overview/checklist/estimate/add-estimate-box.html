@@ -1,0 +1,30 @@
+<div data-ng-controller="mi.repair.web.AddEstimateCtrl">
+    <div class="page-header">
+        <h4>Existing Estimates</h4>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Vehicle</th>
+                    <th>Amount</th>
+                    <th>Modified Date</th>
+                    <th>Modified System</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="estimate in addEstimateViewModel.existingEstimates">
+                    <td>{{estimate.customer.lastName}}, {{estimate.customer.firstName}}</td>
+                    <td>{{estimate.vehicle.year}} {{estimate.vehicle.make}} {{estimate.vehicle.model}}</td>
+                    <td>{{estimate.amount}}</td>
+                    <td>{{estimate.modifiedDate}}</td>
+                    <td>{{estimate.system}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

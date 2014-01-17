@@ -11,7 +11,7 @@
             return {
                 restrict: "AE",
                 templateUrl: "modules/components/checklist/checklist-item.html",
-                controller: "ChecklistItemCtrl",
+                controller: "mi.repair.web.ChecklistItemCtrl",
                 link: link
             };
         });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mi.repair.web" ng-controller="mi.repair.web.AppCtrl">
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="mi.repair.web" data-ng-controller="mi.repair.web.AppCtrl">
     <head>
         <meta charset="utf-8"/>
         <title>AngularJS</title>
@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
-        <div app-shell></div>
+        <div data-app-shell></div>
 
         <script type="text/javascript" src="libs/jquery/1.10.2/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="libs/bootstrap/3.0.3/bootstrap.js"></script>
@@ -28,8 +28,9 @@
         <script type="text/javascript" src="modules/components/checklist/checklist-item.directives.js"></script>
 
         <!-- App specific modules -->
-        <script type="text/javascript" src="app/job-overview/checklist/estimate-checklist-item.controllers.js"></script>
-        <script type="text/javascript" src="app/job-overview/checklist/attachment-checklist-item.controller.js"></script>
-
+        <script type="text/javascript" src="app/job-overview/checklist/estimate/estimate-checklist-item.controllers.js"></script>
+        <script type="text/javascript" src="app/job-overview/checklist/estimate/add-estimate-box.controller.js"></script>
+        <script type="text/javascript" src="app/job-overview/checklist/attachments/attachment-checklist-item.controller.js"></script>
+        <script type="text/javascript" src="app/job-overview/checklist/compliance/compliance-checklist-item.controller.js"></script>
     </body>
 </html>

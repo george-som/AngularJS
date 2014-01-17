@@ -16,7 +16,7 @@
                                 action: function() {
                                     console.log("Add Estimate clicked");
 
-                                    var args = { templateurl: "app/job-overview/checklist/add-estimate-box.html" }
+                                    var args = { templateurl: "app/job-overview/checklist/estimate/add-estimate-box.html" }
                                     $rootScope.$broadcast("show-modal", args);
                                 }
                             },
@@ -25,7 +25,7 @@
                                 action: function() {
                                     console.log("Write Estimate clicked");
 
-                                    var args = { templateurl: "app/job-overview/checklist/write-estimate-box.html" }
+                                    var args = { templateurl: "app/job-overview/checklist/estimate/write-estimate-box.html" }
                                     $rootScope.$broadcast("show-modal", args);
                                 }
                             }
