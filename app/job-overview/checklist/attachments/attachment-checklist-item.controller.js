@@ -2,42 +2,54 @@
     'use strict';
 
     ng.module("mi.repair.web")
-        .controller("mi.repair.web.AttachmentChecklistItemCtrl", ['$rootScope', '$scope',
-            function($rootScope, $scope) {
+        .controller("mi.repair.web.AttachmentChecklistItemCtrl", ['$scope', 'mi.repair.web.EventAggregator',
+            function($scope, eventAggregator) {
 
-                var states = {
-                    "default" : {
-                        heading: "Photos & Attachments",
-                        subHeading: "Required: Minimum of 18 photos of the damage area.",
-                        actions: [
-                            {
-                                text: "Add Attachments",
-                                action: function() {
-                                    var args = { templateurl: "app/job-overview/checklist/attachments/add-attachments-box.html" }
-                                    $rootScope.$broadcast("show-modal", args);
-                                }
-                            }]
-                    },
-                    "completed" : {
-                        heading: "Photos & Attachments",
-                        subHeading: "18 photos of the damage area attached but not yet submitted for review",
-                        actions: [
-                            {
-                                text: "Add Attachments",
-                                action: function() {
-                                    var args = { templateurl: "app/job-overview/checklist/attachments/add-attachments-box.html" }
-                                    $rootScope.$broadcast("show-modal", args);
-                                }
-                            }]
+                var viewModel = { }
+
+                viewModel.states = getViewModelStates();
+
+                // This should be set only on initialization and events
+                viewModel.currentState = viewModel.states["completed"]
+
+                eventAggregator.subscribe("onItemAttachedEvent", function(event, args){
+
+                    viewModel.attachedItem = {
+                        text: args
                     }
-                };
+                });
 
-                $scope.checklistItemViewModel = {
-                    currentState: undefined,
-                    states: states
-                };
+                $scope.checklistItemViewModel = viewModel;
 
-                $scope.checklistItemViewModel.currentState = states["completed"];
+                function getViewModelStates() {
+                    return {
+                        "default" : {
+                            heading: "Photos & Attachments",
+                            subHeading: "Required: Minimum of 1 photo of the damage area.",
+                            actions: [
+                                {
+                                    text: "Add Attachments",
+                                    action: function() {
+                                        var args = { templateUrl: "app/job-overview/checklist/attachments/add-attachments-box.html" }
+                                        eventAggregator.publish("onShowModalEvent", args);
+                                    }
+                                }]
+                        },
+                        "completed" : {
+                            heading: "Photos & Attachments",
+                            subHeading: "1 photos of the damage area attached but not yet submitted for review",
+                            actions: [
+                                {
+                                    text: "Add Attachments",
+                                    action: function() {
+                                        var args = { templateUrl: "app/job-overview/checklist/attachments/add-attachments-box.html" }
+                                        eventAggregator.publish("onShowModalEvent", args);
+                                    }
+                                }]
+                        }
+                    };
+                }
+
             }]);
 
 }(angular))

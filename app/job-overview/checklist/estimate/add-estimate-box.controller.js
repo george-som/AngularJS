@@ -2,20 +2,20 @@
     'use strict';
 
     ng.module("mi.repair.web")
-        .controller("mi.repair.web.AddEstimateCtrl", ['$rootScope', '$scope', 'mi.repair.web.estimateService',
-            function ($rootScope, $scope, estimateService) {
+        .controller("mi.repair.web.AddEstimateCtrl", ['$scope', 'mi.repair.web.estimateService', 'mi.repair.web.EventAggregator',
+            function ($scope, estimateService, eventAggregator) {
 
-                estimateService.test("mi.repair.web.AddEstimateCtrl");
-
-                $scope.addEstimateViewModel = {
-                    existingEstimates : estimateService.getEstimates(),
+                var viewModel = {
+                    existingEstimates: estimateService.getEstimates(),
                     addEstimate: function(estimate) {
                         console.log(estimate);
 
-                        $rootScope.$broadcast("estimate-added", estimate);
-                        $rootScope.$broadcast("hide-modal", null);
+                        estimateService.addEstimate(estimate);
+                        eventAggregator.publish("onHideModalEvent");
                     }
                 };
+
+                $scope.addEstimateViewModel = viewModel;
             }
         ]);
 }(angular))

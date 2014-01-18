@@ -3,9 +3,17 @@ describe("mi.repair.web.AttachmentChecklistItemCtrl Tests", function() {
 
     var _scope;
     var _sut;
+    var mockEventAggregator = {
+        subscribe: jasmine.createSpy()
+    };
+
     beforeEach(inject(function($rootScope, $controller) {
         _scope = $rootScope.$new();
-        _sut = $controller('mi.repair.web.AttachmentChecklistItemCtrl', { $scope: _scope });
+        _sut = $controller('mi.repair.web.AttachmentChecklistItemCtrl',
+            {
+                $scope: _scope,
+                "mi.repair.web.EventAggregator": mockEventAggregator
+            });
     }));
 
     describe("When constructing AttachmentChecklistItemCtrl", function() {
@@ -31,7 +39,7 @@ describe("mi.repair.web.AttachmentChecklistItemCtrl Tests", function() {
                 });
 
                 it("should set subHeading", function() {
-                    expect(defaultState.subHeading).toBe("Required: Minimum of 18 photos of the damage area.");
+                    expect(defaultState.subHeading).toBe("Required: Minimum of 1 photo of the damage area.");
                 });
             })
         });
