@@ -2,9 +2,10 @@
     'use strict';
 
     ng.module("mi.repair.web")
-        //.controller("IngredientChecklistItemConfigCtrl", ['$rootScope', '$scope',
-        .controller("mi.repair.web.EstimateChecklistItemConfigCtrl", ['$rootScope', '$scope',
-            function($rootScope, $scope) {
+        .controller("mi.repair.web.EstimateChecklistItemConfigCtrl", ['$rootScope', '$scope', 'mi.repair.web.estimateService',
+            function($rootScope, $scope, estimateService) {
+
+                estimateService.test("mi.repair.web.EstimateChecklistItemConfigCtrl");
 
                 var states = {
                     "default" : {
@@ -17,15 +18,6 @@
                                     console.log("Add Estimate clicked");
 
                                     var args = { templateurl: "app/job-overview/checklist/estimate/add-estimate-box.html" }
-                                    $rootScope.$broadcast("show-modal", args);
-                                }
-                            },
-                            {
-                                text: "Write Estimate",
-                                action: function() {
-                                    console.log("Write Estimate clicked");
-
-                                    var args = { templateurl: "app/job-overview/checklist/estimate/write-estimate-box.html" }
                                     $rootScope.$broadcast("show-modal", args);
                                 }
                             }
@@ -47,5 +39,14 @@
                 };
 
                 $scope.checklistItemViewModel.currentState = states["default"];
+
+                $rootScope.$on("estimate-added", function(event, args) {
+                    console.log("Estimate Added")
+
+                    $scope.checklistItemViewModel.attachedItem = {
+                        text: "Estimate-ID: " + args.id + "  Total: " + args.amount
+                    };
+                    $scope.checklistItemViewModel.currentState = states["completed"];
+                })
             }]);
 }(angular))

@@ -6,6 +6,7 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
+                    <th>Estimate ID</th>
                     <th>Customer</th>
                     <th>Vehicle</th>
                     <th>Amount</th>
@@ -15,7 +16,15 @@
             </thead>
             <tbody>
                 <tr ng-repeat="estimate in addEstimateViewModel.existingEstimates">
-                    <td>{{estimate.customer.lastName}}, {{estimate.customer.firstName}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" data-ng-click="addEstimateViewModel.addEstimate(estimate)">
+                            Add
+                        </button>
+                        {{estimate.id}}
+                    </td>
+                    <td>
+                        {{estimate.customer.lastName}}, {{estimate.customer.firstName}}
+                    </td>
                     <td>{{estimate.vehicle.year}} {{estimate.vehicle.make}} {{estimate.vehicle.model}}</td>
                     <td>{{estimate.amount}}</td>
                     <td>{{estimate.modifiedDate}}</td>
