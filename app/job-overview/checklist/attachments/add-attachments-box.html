@@ -1,3 +1,38 @@
 <div data-ng-controller="mi.repair.web.AddAttachmentsCtrl">
-    <button data-ng-click="addAttachmentViewModel.publish()">Published</button>
+    <div class="page-header">
+        <h4>Photos</h4>
+    </div>
+<div>
+    <button class="btn-success" data-ng-click="addAttachmentViewModel.okCommand()">Ok</button>
+</div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Filename</th>
+                <th>Size</th>
+                <th>Modified Date</th>
+                <th>Path</th>
+            </tr>
+            </thead>
+                <tbody>
+                <tr class="check-element animate-show"
+                    data-ng-repeat="attachment in addAttachmentViewModel.attachments"
+                    data-ng-hide="attachment.hasBeenAdded">
+                    <td>
+                        <button class="btn btn-sm btn-primary" data-ng-click="addAttachmentViewModel.addAttachment(attachment)">
+                            Add
+                        </button>
+                    </td>
+                    <td>
+                        {{attachment.filename}}
+                    </td>
+                    <td>{{attachment.size}}</td>
+                    <td>{{attachment.modifiedDate}}</td>
+                    <td>{{attachment.path}}</td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
 </div>

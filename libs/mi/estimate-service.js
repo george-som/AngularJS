@@ -1,14 +1,8 @@
 (function(ng){
     ng.module("mi.repair.web")
-        .service("mi.repair.web.estimateService", ['mi.repair.web.EventAggregator', function(eventAggregator) {
-            console.log("mi.repair.web.estimateService instantiated");
+        .service("mi.repair.web.estimateService", ['mi.repair.web.EventAggregator',
+            function(eventAggregator) {
 
-            return {
-                getEstimates: getExistingEstimates,
-                addEstimate: addEstimate
-            };
-
-            function getExistingEstimates(){
                 var existingEstimates = [
                     {
                         customer: {
@@ -23,7 +17,7 @@
                         amount: 806.28,
                         modifiedDate: "Today, 8:02 am",
                         system: "CCC",
-                        id: "12345A"
+                        id: "6025-0001"
                     },
                     {
                         customer: {
@@ -38,7 +32,7 @@
                         amount: 1705.24,
                         modifiedDate: "Today, 7:45 am",
                         system: "CCC",
-                        id: "12345B"
+                        id: "6025-0002"
                     },{
                         customer: {
                             firstName: "James",
@@ -52,7 +46,7 @@
                         amount: 2507.98,
                         modifiedDate: "Yesterday, 5:21 pm",
                         system: "Mitchell",
-                        id: "12345C"
+                        id: "6025-0003"
                     },{
                         customer: {
                             firstName: "Sarah",
@@ -66,7 +60,7 @@
                         amount: 789.54,
                         modifiedDate: "Yesterday, 11:47 am",
                         system: "Mitchell",
-                        id: "12345D"
+                        id: "6025-0004"
                     },{
                         customer: {
                             firstName: "Jill",
@@ -80,7 +74,7 @@
                         amount: 321.08,
                         modifiedDate: "Yesterday, 9:32 am",
                         system: "CCC",
-                        id: "12345E"
+                        id: "6025-0005"
                     },{
                         customer: {
                             firstName: "Sammi",
@@ -94,13 +88,23 @@
                         amount: 1204.67,
                         modifiedDate: "Fri Dec 6, 10:45 am",
                         system: "Mitchell",
-                        id: "12345F"
+                        id: "6025-0006"
                     }];
+
+            return {
+                getEstimates: getExistingEstimates,
+                addEstimate: addEstimate
+            };
+
+            function getExistingEstimates(){
 
                 return existingEstimates;
             }
 
             function addEstimate(estimate) {
+
+                estimate.hasBeenAdded = true;
+
                 eventAggregator.publish("onEstimateAddedEvent", estimate);
             }
         }]);

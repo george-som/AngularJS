@@ -1,1 +1,38 @@
-attach-compliance-box.html
+<div data-ng-controller="mi.repair.web.AddComplianceCtrl">
+    <div class="page-header">
+        <h4>Compliance Reports</h4>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Filename</th>
+                <th>Size</th>
+                <th>Modified Date</th>
+                <th>Path</th>
+            </tr>
+            </thead>
+                <tbody>
+                <tr class="check-element animate-show"
+                    data-ng-repeat="report in addComplianceViewModel.complianceReports"
+                    data-ng-hide="report.hasBeenAdded">
+                    <td>
+                        <button class="btn btn-sm btn-primary" data-ng-click="addComplianceViewModel.addReport(report)">
+                            Add
+                        </button>
+                    </td>
+                    <td>
+                        {{report.filename}}
+                    </td>
+                    <td>{{report.size}}</td>
+                    <td>{{report.modifiedDate}}</td>
+                    <td>{{report.path}}</td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+</div>
+
+
+

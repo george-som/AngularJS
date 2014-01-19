@@ -15,7 +15,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="estimate in addEstimateViewModel.existingEstimates">
+                <tr class="check-element animate-show"
+                    data-ng-repeat="estimate in addEstimateViewModel.existingEstimates"
+                    data-ng-hide="attachment.hasBeenAdded">
                     <td>
                         <button class="btn btn-sm btn-primary" data-ng-click="addEstimateViewModel.addEstimate(estimate)">
                             Add

@@ -4,13 +4,16 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="h4">
-                        {{checklistConfig.title}}
+                        {{checklistConfig.title}}   <span class="badge"
+                                                          data-ng-hide="checklistViewModel.isChecklistCompleted">{{checklistViewModel.badgeCount}} remaining</span>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <button class="btn" data-ng-class="checklistViewModel.currentState.buttonClass">
-                        {{checklistViewModel.currentState.buttonText}} <span class="badge">10</span>
+                    <button class="btn"
+                            data-ng-class="checklistViewModel.currentState.buttonClass"
+                            data-ng-disabled="!checklistViewModel.currentState.isEnabled">
+                        {{checklistViewModel.currentState.buttonText}}
                     </button>
                 </div>
             </div>

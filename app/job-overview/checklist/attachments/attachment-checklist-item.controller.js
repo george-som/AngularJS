@@ -10,16 +10,43 @@
                 viewModel.states = getViewModelStates();
 
                 // This should be set only on initialization and events
-                viewModel.currentState = viewModel.states["completed"]
+                viewModel.currentState = viewModel.states["default"];
 
-                eventAggregator.subscribe("onItemAttachedEvent", function(event, args){
+                viewModel.attachedItems = [];
+                eventAggregator.subscribe("onAttachmentAdded", function(event, attachment) {
+                    console.log("attachment received");
+                    console.log(attachment);
 
-                    viewModel.attachedItem = {
-                        text: args
-                    }
-                });
+                    // This could be swapped out for a template
+                    attachment.displayText = "Filename: " + attachment.filename + " Size: " + attachment.size;
+
+                    viewModel.attachedItems.push(attachment);
+
+                    setViewModelState();
+                })
 
                 $scope.checklistItemViewModel = viewModel;
+
+                var alreadyCompleted = false;
+
+                function setViewModelState() {
+
+                    if(isChecklistItemCompleted() && !alreadyCompleted) {
+                        alreadyCompleted = true;
+
+                        viewModel.currentState = viewModel.states["completed"];
+                        eventAggregator.publish("onChecklistCompletionEvent");
+
+                        // This can probably be swapped out for a template
+                        viewModel.currentState.subHeading = viewModel.attachedItems.length + " photos of the damage area attached but not yet submitted for review";
+                    }
+                }
+
+                function isChecklistItemCompleted() {
+                    var minimumRequiredAttachmentCount = 3;
+
+                    return viewModel.attachedItems.length >= minimumRequiredAttachmentCount;
+                }
 
                 function getViewModelStates() {
                     return {

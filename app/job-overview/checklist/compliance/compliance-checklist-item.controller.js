@@ -10,6 +10,20 @@
                 viewModel.states = getViewModelStates();
                 viewModel.currentState = viewModel.states["default"];
 
+                viewModel.attachedItems = [];
+                eventAggregator.subscribe("onComplianceAddedEvent", function(event, report) {
+                    console.log("Compliance received");
+                    console.log(report);
+
+                    // This should be swapped out for a custom template
+                    report.displayText = "Filename: " + report.filename + " Size: " + report.size;
+
+                    viewModel.attachedItems.push(report);
+                    viewModel.currentState = viewModel.states["completed"];
+
+                    eventAggregator.publish("onChecklistCompletionEvent");
+                });
+
                 $scope.checklistItemViewModel = viewModel;
 
                 function getViewModelStates() {
@@ -29,14 +43,6 @@
                         "completed" : {
                             heading: "Compliance",
                             subHeading: "Compliance report attached with the estimate, but not yet submitted for review.",
-                            actions: [
-                                {
-                                    text: "Attach Compliance Report",
-                                    action: function() {
-                                        var args = { templateUrl: "app/job-overview/checklist/compliance/attach-compliance-box.html" }
-                                        eventAggregator.publish("onShowModalEvent", args);
-                                    }
-                                }]
                         }
                     };
                 }

@@ -5,7 +5,6 @@
         .directive('checklistItem', function() {
 
             var link = function(scope, element, attrs) {
-                console.log("linking of checklist-item directive");
             };
 
             return {

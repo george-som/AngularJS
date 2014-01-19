@@ -12,10 +12,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" data-ng-repeat="attachment in checklistItemViewModel.attachedItems">
             <div class="col-md-10 col-md-offset-2">
                 <div style="color: #a94442;">
-                    {{checklistItemViewModel.attachedItem.text}}
+                    {{attachment.displayText}}
                 </div>
             </div>
         </div>

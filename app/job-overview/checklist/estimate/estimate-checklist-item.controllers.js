@@ -10,12 +10,25 @@
                 viewModel.states = getViewModelStates();
                 viewModel.currentState = viewModel.states["default"];
 
+                viewModel.attachedItems = [];
                 eventAggregator.subscribe("onEstimateAddedEvent", function(event, args) {
+                    console.log("estimate received");
+                    console.log(args);
+
+                    args.displayText = "Estimate-ID: " + args.id + "  Total: " + args.amount;
 
                     viewModel.attachedItem = {
                         text: "Estimate-ID: " + args.id + "  Total: " + args.amount
                     }
+
+                    viewModel.attachedItems.push(args);
+                    console.log("Estimate Count = " + viewModel.attachedItems.length);
+
+
+
                     viewModel.currentState = viewModel.states["completed"];
+
+                    eventAggregator.publish("onChecklistCompletionEvent");
                 });
 
                 $scope.checklistItemViewModel = viewModel;

@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <title>AngularJS</title>
         <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/bootstrap-flatly.min.css">
+        <link rel="stylesheet" href="css/bootstrap-cerulean.css">
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
@@ -13,6 +13,7 @@
         <script type="text/javascript" src="libs/jquery/1.10.2/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="libs/bootstrap/3.0.3/bootstrap.js"></script>
         <script type="text/javascript" src="libs/angularjs/1.2.8/angular.js"></script>
+        <script type="text/javascript" src="libs/angularjs/1.2.8/angular-animate.js"></script>
         <script type="text/javascript" src="libs/angularjs/1.2.8/angular-route.js"></script>
         <script type="text/javascript" src="app/app.js"></script>
         <script type="text/javascript" src="app/app.controllers.js"></script>
@@ -32,12 +33,18 @@
         <!-- App specific modules -->
         <script type="text/javascript" src="app/job-overview/checklist/estimate/estimate-checklist-item.controllers.js"></script>
         <script type="text/javascript" src="app/job-overview/checklist/estimate/add-estimate-box.controller.js"></script>
+
         <script type="text/javascript" src="app/job-overview/checklist/attachments/attachment-checklist-item.controller.js"></script>
         <script type="text/javascript" src="app/job-overview/checklist/attachments/add-attachments-box.controller.js"></script>
-        <script type="text/javascript" src="app/job-overview/checklist/compliance/compliance-checklist-item.controller.js"></script>
 
-        <!-- App specific services -->
-        <script type="text/javascript" src="app/job-overview/estimate-service.js"></script>
+        <script type="text/javascript" src="app/job-overview/checklist/compliance/compliance-checklist-item.controller.js"></script>
+        <script type="text/javascript" src="app/job-overview/checklist/compliance/add-compliance-box.controller.js"></script>
+
+        <!-- Services -->
+        <script type="text/javascript" src="libs/mi/attachment-service.js"></script>
+        <script type="text/javascript" src="libs/mi/compliance-service.js"></script>
+        <script type="text/javascript" src="libs/mi/estimate-service.js"></script>
+
         <script type="text/javascript" src="libs/mi/eventAggregator.js"></script>
     </body>
 </html>
