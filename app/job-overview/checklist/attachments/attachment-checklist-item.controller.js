@@ -37,9 +37,10 @@
                         viewModel.currentState = viewModel.states["completed"];
                         eventAggregator.publish("onChecklistCompletionEvent");
 
-                        // This can probably be swapped out for a template
-                        viewModel.currentState.subHeading = viewModel.attachedItems.length + " photos of the damage area attached but not yet submitted for review";
                     }
+
+                    // This can probably be swapped out for a template
+                    viewModel.currentState.subHeading = viewModel.attachedItems.length + " photos of the damage area attached but not yet submitted for review";
                 }
 
                 function isChecklistItemCompleted() {
@@ -53,6 +54,7 @@
                         "default" : {
                             heading: "Photos & Attachments",
                             subHeading: "Required: Minimum of 1 photo of the damage area.",
+                            imageUrl: "resources/add-photo-small.png",
                             actions: [
                                 {
                                     text: "Add Attachments",
@@ -63,7 +65,7 @@
                                 }]
                         },
                         "completed" : {
-                            heading: "Photos & Attachments",
+                            heading: "✔ Photos & Attachments",
                             subHeading: "1 photos of the damage area attached but not yet submitted for review",
                             actions: [
                                 {

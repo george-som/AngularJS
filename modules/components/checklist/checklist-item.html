@@ -3,11 +3,15 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-2">
-                Image
+                <img data-ng-src="{{checklistItemViewModel.currentState.imageUrl}}" />
             </div>
             <div class="col-md-10">
                 <div>
-                    <div>{{checklistItemViewModel.currentState.heading}} </div>
+                    <div>
+                        <span class="h3" ng-class="{true: 'text-success', false: 'text-default'}[checklistItemViewModel.currentState == checklistItemViewModel.states['completed']]">
+                            {{checklistItemViewModel.currentState.heading}}
+                        </span>
+                    </div>
                     <div>{{checklistItemViewModel.currentState.subHeading}}</div>
                 </div>
             </div>

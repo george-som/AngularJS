@@ -12,6 +12,34 @@
                 <div data-checklist-item data-ng-controller="mi.repair.web.ComplianceChecklistItemCtrl"></div>
             </div>
         </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-body">
+                            Admin Info
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div  data-ng-controller="mi.repair.web.EstimatePlacematCtrl">
+                        <div data-placemat>
+                            <div data-ng-include="placematViewModel.templateUrl"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <div  data-ng-controller="mi.repair.web.AttachmentPlacematCtrl">
+                        <div data-placemat>
+                            <div data-ng-include="placematViewModel.templateUrl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <div>

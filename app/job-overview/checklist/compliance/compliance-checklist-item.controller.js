@@ -31,6 +31,7 @@
                         "default" : {
                             heading: "Compliance",
                             subHeading: "Required: Compliance report attached with the estimate.",
+                            imageUrl: "resources/add-attachment-small.png",
                             actions: [
                                 {
                                     text: "Attach Compliance Report",
@@ -41,7 +42,7 @@
                                 }]
                         },
                         "completed" : {
-                            heading: "Compliance",
+                            heading: "✔ Compliance",
                             subHeading: "Compliance report attached with the estimate, but not yet submitted for review.",
                         }
                     };

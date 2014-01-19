@@ -1,0 +1,94 @@
+<div data-ng-hide="placematViewModel.shouldDisplayDetail">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-4">
+            <div>
+                <img src="resources/add-file-large.png" />
+            </div>
+            <div>
+                <a href data-ng-click="placematViewModel.addEstimate()">Add Estimate</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-ng-show="placematViewModel.shouldDisplayDetail">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <span class="h5">Estimate: {{placematViewModel.attachedEstimate.modifiedDate}}</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Estimate
+                </div>
+                <div class="col-md-6">
+                    Totals
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Parts
+                </div>
+                <div class="col-md-6">
+                    {{placematViewModel.attachedEstimate.costDetail.parts}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Labor
+                </div>
+                <div class="col-md-6">
+                    {{placematViewModel.attachedEstimate.costDetail.labor}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Misc
+                </div>
+                <div class="col-md-6">
+                    {{placematViewModel.attachedEstimate.costDetail.misc}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Tax
+                </div>
+                <div class="col-md-6">
+                    {{placematViewModel.attachedEstimate.costDetail.tax}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="row">
+                    Write Supplement
+                </div>
+            </div>
+            <div class="row">
+                <div class="row">
+                    <span class="h6">ESTIMATOR</span>
+                </div>
+                <div class="row">
+                    {{placematViewModel.attachedEstimate.estimator.firstName}} {{placematViewModel.attachedEstimate.estimator.lastName}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="row">
+                    <span class="h6">SYSTEM</span>
+                </div>
+                <div class="row">
+                    {{placematViewModel.attachedEstimate.system}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="row">
+                    <span class="h6">FILES</span>
+                </div>
+                <div class="row" data-ng-repeat="file in placematViewModel.attachedFiles">
+                    <div class="col-md-8">
+                        <span class="h7 text-success">✔ {{file.filename}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

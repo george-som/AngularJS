@@ -38,6 +38,7 @@
                         "default" : {
                             heading: "Estimate",
                             subHeading: "Required: Original estimate with print image.",
+                            imageUrl: "resources/add-file-small.png",
                             actions: [
                                 {
                                     text: "Add Estimate",
@@ -51,7 +52,7 @@
                             ]
                         },
                         "completed" : {
-                            heading: "Estimate",
+                            heading: "✔ Estimate",
                             subHeading: "Estimate attached but not yet submitted for review."
                         },
                         "approved" : {
