@@ -5,15 +5,21 @@
         .controller('mi.repair.web.AttachmentPlacematCtrl', ['$scope', 'mi.repair.web.EventAggregator',
             function($scope, eventAggregator) {
                 var viewModel = {
-                    templateUrl: "app/job-overview/placemat/estimate-placemat.html",
+                    templateUrl: "app/job-overview/placemat/attachment-placemat.html",
                     title: "Photos & Attachments",
                     attachedFiles: [],
-                    addEstimate: addEstimate
+                    addAttachment: addAttachment
                 };
 
                 $scope.placematViewModel = viewModel;
 
+                eventAggregator.subscribe("onAttachmentAdded", function(event, args) {
+                    viewModel.shouldDisplayDetail = true;
 
+                    viewModel.attachedFiles.push(args);
+                });
+
+/*
                 eventAggregator.subscribe("onEstimateAddedEvent", function(event, estimate) {
                     console.log("received onEstimateAddedEvent from placemat");
                     console.log(estimate);
@@ -42,6 +48,11 @@
 
                 function addEstimate() {
                     var args = { templateUrl: "app/job-overview/checklist/estimate/add-estimate-box.html" }
+                    eventAggregator.publish("onShowModalEvent", args);
+                }*/
+
+                function addAttachment() {
+                    var args = { templateUrl: "app/job-overview/checklist/attachments/add-attachments-box.html" };
                     eventAggregator.publish("onShowModalEvent", args);
                 }
 
