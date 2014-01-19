@@ -6,8 +6,8 @@
                 var existingEstimates = [
                     {
                         customer: {
-                            firstName: "Owens",
-                            lastName: "Vicki"
+                            firstName: "Vicki",
+                            lastName: "Owens"
                         },
                         estimator: {
                             firstName: "Sean",
