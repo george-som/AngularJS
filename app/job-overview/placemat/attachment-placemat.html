@@ -15,19 +15,14 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="h6">PHOTO COUNT</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    {{placematViewModel.attachedFiles.length}}
+                    <span class="h6">PHOTO COUNT</span> <span class="badge">{{placematViewModel.attachedFiles.length}}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <img data-ng-repeat="attachment in placematViewModel.attachedFiles"
                          data-ng-src="{{attachment.imageUrl}}"
-                         style="width: 124px; height: 94px; padding-left: 5px; padding-right: 5px; padding-top: 5px;" />
+                         style="width: 124px; height: 94px; margin-left: 5px; margin-right: 5px; margin-top: 5px;" />
                 </div>
             </div>
         </div>

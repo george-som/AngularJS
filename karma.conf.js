@@ -21,11 +21,11 @@ module.exports = function(config) {
       'libs/angularjs/1.2.8/angular-*.js',
       'libs/angularjs/1.2.8/angular-mocks.js',
       'tests/test-main.js',
-      'libs/mi/eventAggregator.js',
+      'libs/mi/**/*.js',
       'app/**/*.js',
       'app/**/*.html',
       'modules/**/*.js',
-      'modules**/*.html',
+      'modules/**/*.html',
       'tests/**/*.spec.js'
     ],
 
